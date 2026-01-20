@@ -2,6 +2,8 @@
 
 My personal LazyVim configuration.
 
+![screenshot](screenshot.png)
+
 ## Prerequisites
 
 ### Install Neovim (>= 0.9.0)
