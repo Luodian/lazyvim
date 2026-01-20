@@ -1,10 +1,33 @@
-# LazyVim Configuration
+# lazybuild
 
-My personal LazyVim configuration.
+My development environment setup - Ghostty, Neovim (LazyVim), and OpenCode.
 
 ![screenshot](screenshot.png)
 
-## Prerequisites
+## Ghostty
+
+Modern, fast terminal emulator.
+
+**macOS**:
+```bash
+brew install --cask ghostty
+```
+
+**Linux**:
+```bash
+# Build from source
+git clone https://github.com/ghostty-org/ghostty.git
+cd ghostty
+zig build -Doptimize=ReleaseFast
+```
+
+Config location: `~/.config/ghostty/config`
+
+- [Ghostty Documentation](https://ghostty.org/docs)
+
+---
+
+## Neovim + LazyVim
 
 ### Install Neovim (>= 0.9.0)
 
@@ -41,7 +64,7 @@ npm install -g neovim
 # lazygit - https://github.com/jesseduffield/lazygit#installation
 ```
 
-## Installation
+### Installation
 
 ```bash
 # Backup existing config (if any)
@@ -51,19 +74,57 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 
 # Clone this config
-git clone https://github.com/Luodian/lazyvim.git ~/.config/nvim
+git clone https://github.com/Luodian/lazybuild.git ~/.config/nvim
 
 # Start Neovim - plugins will auto-install
 nvim
 ```
 
-## Update
+### Update
 
 ```bash
 cd ~/.config/nvim && git pull
 ```
 
-## References
-
 - [LazyVim](https://lazyvim.github.io/)
 - [Neovim](https://neovim.io/doc/)
+
+---
+
+## OpenCode + Oh-My-OpenCode
+
+AI-powered coding assistant in terminal.
+
+### Install OpenCode
+
+```bash
+# macOS/Linux
+curl -fsSL https://opencode.ai/install.sh | bash
+
+# Or via Go
+go install github.com/opencode-ai/opencode@latest
+```
+
+### Install Oh-My-OpenCode
+
+```bash
+# Clone oh-my-opencode
+git clone https://github.com/ohmyopencode/oh-my-opencode.git ~/.oh-my-opencode
+
+# Add to shell config (~/.zshrc or ~/.bashrc)
+echo 'source ~/.oh-my-opencode/oh-my-opencode.sh' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### Configuration
+
+```bash
+# Set API key
+export ANTHROPIC_API_KEY="your-api-key"
+
+# Or configure via
+opencode config
+```
+
+- [OpenCode](https://github.com/opencode-ai/opencode)
+- [Oh-My-OpenCode](https://github.com/ohmyopencode/oh-my-opencode)
